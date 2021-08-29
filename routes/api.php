@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'v1'/* , 'middleware' => 'api.validation'*/], function () {
+Route::group(['prefix' => 'v1' , 'middleware' => 'api.validation'], function () {
 
     Route::post('login' , [\App\Http\Controllers\API\AuthController::class , 'login']);
 

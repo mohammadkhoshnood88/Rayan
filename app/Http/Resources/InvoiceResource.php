@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class InvoiceResource extends JsonResource
 {
@@ -14,6 +15,11 @@ class InvoiceResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'ip' => $this->ip,
+            'transaction number' => $this->transaction_number,
+            'amount' => $this->amount,
+        ];
     }
 }

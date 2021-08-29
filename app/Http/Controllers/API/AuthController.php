@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ip;
+use App\Services\IpService;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -39,6 +40,11 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL()
         ]);
+    }
+
+    public function store(Request $request , IpService $service)
+    {
+        return $service->store($request);
     }
 
 }

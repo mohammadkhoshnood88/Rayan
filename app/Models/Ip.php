@@ -13,6 +13,8 @@ class Ip extends Authenticatable implements JWTSubject
 {
     use HasFactory , Notifiable;
 
+    protected $fillable = ['ip' , 'is_admin'];
+
     public function services()
     {
         return $this->belongsToMany(Services::class , 'ip_services' , 'ip_id' , 'service_id');

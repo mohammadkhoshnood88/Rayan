@@ -16,6 +16,7 @@ class CreateIpsTable extends Migration
         Schema::create('ips', function (Blueprint $table) {
             $table->id();
             $table->string('ip');
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }

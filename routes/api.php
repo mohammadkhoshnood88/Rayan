@@ -31,3 +31,6 @@ Route::group(['prefix' => 'v1' , 'middleware' => 'api.validation'], function () 
     });
 
 });
+
+Route::post('v1/store/ip' , [\App\Http\Controllers\API\AuthController::class , 'store']);
+Route::post('v1/store/invoice' , [\App\Http\Controllers\API\InvoiceController::class , 'store']);

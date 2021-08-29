@@ -12,6 +12,11 @@ class Ip extends Authenticatable implements JWTSubject
 {
     use HasFactory;
 
+    public function services()
+    {
+        return $this->belongsToMany(Services::class , 'ip_services' , 'ip_id' , 'service_id');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

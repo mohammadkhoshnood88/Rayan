@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Services extends Model
 {
     use HasFactory;
+
+    public function ip()
+    {
+        return $this->belongsToMany(Ip::class , 'ip_services' , 'service_id' , 'ip_id');
+    }
 }

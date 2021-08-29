@@ -20,6 +20,7 @@ class InvoiceResource extends JsonResource
             'ip' => $this->ip,
             'transaction number' => $this->transaction_number,
             'amount' => $this->amount,
+            'carts' => $this->carts
         ];
     }
 }

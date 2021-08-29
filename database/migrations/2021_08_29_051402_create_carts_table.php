@@ -16,6 +16,7 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->string('ip');
+            $table->foreignId('invoice_id');
             $table->bigInteger('product_id');
             $table->float('price');
             $table->timestamps();

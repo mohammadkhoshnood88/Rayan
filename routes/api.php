@@ -22,6 +22,7 @@ Route::group(['prefix' => 'v1'/* , 'middleware' => 'api.validation'*/], function
         Route::get('/' , [\App\Http\Controllers\API\InvoiceController::class , 'index']);
         Route::get('/{id}' , [\App\Http\Controllers\API\InvoiceController::class , 'show']);
     });
+    Route::post('request/pay/{id}' , [\App\Http\Controllers\API\InvoiceController::class , 'request_pay']);
 
     Route::group(['prefix' => 'payment'], function () {
         Route::get('/' , [\App\Http\Controllers\API\PaymentController::class , 'index']);

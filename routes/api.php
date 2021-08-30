@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'v1' , 'middleware' => 'api.validation'], function () {
+Route::group(['prefix' => 'v1' /*, 'middleware' => 'api.validation'*/], function () {
 
     Route::post('login' , [\App\Http\Controllers\API\AuthController::class , 'login']);
 
@@ -22,7 +22,9 @@ Route::group(['prefix' => 'v1' , 'middleware' => 'api.validation'], function () 
         Route::get('/' , [\App\Http\Controllers\API\InvoiceController::class , 'index']);
         Route::get('/{id}' , [\App\Http\Controllers\API\InvoiceController::class , 'show']);
     });
-    Route::post('request/pay/{id}' , [\App\Http\Controllers\API\InvoiceController::class , 'request_pay']);
+    Route::post('store/cart' , [\App\Http\Controllers\API\InvoiceController::class , 'store_cart']);
+    Route::post('request/pay' , [\App\Http\Controllers\API\InvoiceController::class , 'request_pay']);
+    Route::get('verify/pay/{id}' , [\App\Http\Controllers\API\InvoiceController::class , 'verify_pay']);
 
     Route::group(['prefix' => 'payment'], function () {
         Route::get('/' , [\App\Http\Controllers\API\PaymentController::class , 'index']);
